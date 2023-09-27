@@ -28,8 +28,10 @@ var greeting = "Hello, playground"
  ```
  */
  // My implimentation in swift!
- 
-func isPrime(input:Int) -> Bool{
+
+
+
+let isPrime:(Int) -> Bool = { input in
     if (input <= 1){
         return false
     }
@@ -42,16 +44,17 @@ func isPrime(input:Int) -> Bool{
         }
     }
     return true
+    
 }
 
 print("test cases!")
 
-print("for isPrime(input: 0), our output is: ", isPrime(input: 0)) // expects to be false
-print("for isPrime(input: 3), our output is: ", isPrime(input: 3)) // expected to be true
-print("for isPrime(input: 7), our output is: ", isPrime(input: 7)) // expected to be true
-print("for isPrime(input: 33), our output is: ", isPrime(input: 33)) // expected to be false
-print("for isPrime(input: 97), our output is: ", isPrime(input: 97)) // expected to be true
-print("for isPrime(input: 4091), our output is: ", isPrime(input: 4091)) // expected to be true
+print("for isPrime(input: 0), our output is: ", isPrime(0)) // expects to be false
+print("for isPrime(input: 3), our output is: ", isPrime(3)) // expected to be true
+print("for isPrime(input: 7), our output is: ", isPrime(7)) // expected to be true
+print("for isPrime(input: 33), our output is: ", isPrime(33)) // expected to be false
+print("for isPrime(input: 97), our output is: ", isPrime(97)) // expected to be true
+print("for isPrime(input: 4091), our output is: ", isPrime(4091)) // expected to be true
 
 
 

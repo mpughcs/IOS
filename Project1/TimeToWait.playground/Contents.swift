@@ -48,7 +48,7 @@ func waitingTime(firstHour:Int, firstMinute: Int, secondHour:Int, secondMinute:I
     let min = difference % 60
  
     return ("You should wait \(hours):\(min)")
-//
+
 }
 
 

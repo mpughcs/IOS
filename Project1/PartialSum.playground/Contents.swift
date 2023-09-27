@@ -34,7 +34,7 @@ To calculate the partial sum of the 2 arrays. We should initialize a toReturn In
  */
 
 
-func partialSum(_ Array1: [Int], _ Array2: [(Int,Int)]) -> ([Int]) {
+func partialSum( Array1: [Int], Array2: [(Int,Int)]) -> ([Int]) {
     var toReturn = [Int](repeating: 0, count: Array2.count)
     for i in 0..<Array2.count{
         var localSum = 0
@@ -48,15 +48,16 @@ func partialSum(_ Array1: [Int], _ Array2: [(Int,Int)]) -> ([Int]) {
     }
     return(toReturn)
     
-    
-    
 }
 
+print("Array1: [3, 6, 4, 15, 30], Array2: [(1, 3), (0, 4)]")
+print("Expected: [25,58], Actual:", partialSum(Array1: [3, 6, 4, 15, 30], Array2: [(1, 3), (0, 4)]))
+
 print("Array1: [1, 2, 3, 4, 5], Array2: [(0, 2), (1, 4), (2, 3)]")
-print("Expected: [6, 14, 7], Actual:", partialSum([1, 2, 3, 4, 5], [(0, 2), (1, 4), (2, 3)]))
+print("Expected: [6, 14, 7], Actual:", partialSum(Array1: [1, 2, 3, 4, 5], Array2: [(0, 2), (1, 4), (2, 3)]))
 
 print("Array1: [10, 20, 30, 40, 50], Array2: [(0, 0), (2, 2), (3, 4)]")
-print("Expected: [10, 30, 90], Actual:", partialSum([10, 20, 30, 40, 50], [(0, 0), (2, 2), (3, 4)]))
+print("Expected: [10, 30, 90], Actual:", partialSum(Array1: [10, 20, 30, 40, 50], Array2: [(0, 0), (2, 2), (3, 4)]))
 
 print("Array1: [5, 10, 15, 20], Array2: [(0, 1), (0, 3)]")
-print("Expected: [15, 50], Actual:", partialSum([5, 10, 15, 20], [(0, 1), (0, 3)]))
+print("Expected: [15, 50], Actual:", partialSum(Array1: [5, 10, 15, 20], Array2: [(0, 1), (0, 3)]))
