@@ -35,6 +35,7 @@ struct SecondTabView: View {
             
             Button("Reset") {
                 angle = 0
+                scale = 1.0
                 
             }
         }
