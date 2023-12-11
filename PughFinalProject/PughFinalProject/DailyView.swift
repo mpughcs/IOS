@@ -1,15 +1,37 @@
-//
-//  DailyView.swift
-//  PughFinalProject
-//
-//  Created by Max Pugh on 12/10/23.
-//
-
 import SwiftUI
 
 struct DailyView: View {
+    @FetchRequest(sortDescriptors: []) var medsCD: FetchedResults<MedCD>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(medsCD, id: \.self) { med in
+                    NavigationLink(destination: MedicationDetailView(medication: med)) {
+                        HStack {
+                            Text(med.name ?? "Unnamed Medication")
+                            Spacer()
+                            Text("\(med.timesADay) times a day")
+                                .foregroundColor(med.timesADay > 0 ? .blue : .gray)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Your Day")
+        }
+    }
+}
+
+struct MedicationDetailView: View {
+    let medication: MedCD
+    
+    var body: some View {
+        VStack {
+            Text("Medication: \(medication.name ?? "Unknown")")
+            Text("Take \(medication.timesADay) times a day")
+        }
+        .padding()
+        .navigationTitle(medication.name ?? "Unknown")
     }
 }
 
@@ -18,3 +40,4 @@ struct DailyView_Previews: PreviewProvider {
         DailyView()
     }
 }
+

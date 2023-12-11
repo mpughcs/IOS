@@ -11,6 +11,8 @@
 		5B1B18FC2B25413D0052817E /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B18FB2B25413D0052817E /* Medication.swift */; };
 		5B1B18FE2B2547F10052817E /* MedicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B18FD2B2547F10052817E /* MedicationDetail.swift */; };
 		5B396B852B264EA700E19894 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B396B842B264EA700E19894 /* DailyView.swift */; };
+		5B396BC82B265D2500E19894 /* Medication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B396BC62B265D2500E19894 /* Medication.xcdatamodeld */; };
+		5B396BCA2B265D8C00E19894 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B396BC92B265D8C00E19894 /* Persistence.swift */; };
 		5B3C404A2B212E19001DE791 /* PughFinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C40492B212E19001DE791 /* PughFinalProjectApp.swift */; };
 		5B3C404C2B212E19001DE791 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C404B2B212E19001DE791 /* ContentView.swift */; };
 		5B3C404E2B212E1A001DE791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3C404D2B212E1A001DE791 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		5B1B18FB2B25413D0052817E /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		5B1B18FD2B2547F10052817E /* MedicationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationDetail.swift; sourceTree = "<group>"; };
 		5B396B842B264EA700E19894 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		5B396BC72B265D2500E19894 /* Medication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Medication.xcdatamodel; sourceTree = "<group>"; };
+		5B396BC92B265D8C00E19894 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5B3C40462B212E19001DE791 /* PughFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PughFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3C40492B212E19001DE791 /* PughFinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PughFinalProjectApp.swift; sourceTree = "<group>"; };
 		5B3C404B2B212E19001DE791 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				5B396B842B264EA700E19894 /* DailyView.swift */,
 				5B1B18F92B2540FB0052817E /* MedicationStore.swift */,
 				5B1B18FB2B25413D0052817E /* Medication.swift */,
+				5B396BC62B265D2500E19894 /* Medication.xcdatamodeld */,
+				5B396BC92B265D8C00E19894 /* Persistence.swift */,
 				5B3C40592B21318B001DE791 /* AddMedicationView.swift */,
 				5B3C40572B21317C001DE791 /* HomeView.swift */,
 				5B1B18FD2B2547F10052817E /* MedicationDetail.swift */,
@@ -155,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B396BC82B265D2500E19894 /* Medication.xcdatamodeld in Sources */,
 				5B396B852B264EA700E19894 /* DailyView.swift in Sources */,
 				5B3C40582B21317C001DE791 /* HomeView.swift in Sources */,
 				5B1B18FA2B2540FB0052817E /* MedicationStore.swift in Sources */,
@@ -163,6 +170,7 @@
 				5B1B18FE2B2547F10052817E /* MedicationDetail.swift in Sources */,
 				5B1B18FC2B25413D0052817E /* Medication.swift in Sources */,
 				5B3C405A2B21318B001DE791 /* AddMedicationView.swift in Sources */,
+				5B396BCA2B265D8C00E19894 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +371,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5B396BC62B265D2500E19894 /* Medication.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B396BC72B265D2500E19894 /* Medication.xcdatamodel */,
+			);
+			currentVersion = 5B396BC72B265D2500E19894 /* Medication.xcdatamodel */;
+			path = Medication.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5B3C403E2B212E19001DE791 /* Project object */;
 }

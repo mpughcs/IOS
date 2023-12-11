@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
-
+// this is the main view that will be displayed when the app is opened
 struct ContentView: View {
+    
+    @StateObject var medicationStore: MedicationStore = MedicationStore()
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    
+    
     var body: some View {
         NavigationView{
             TabView{
@@ -34,8 +40,6 @@ struct ContentView: View {
                 .animation(.easeInOut) // 2
                 .transition(.slide) // 3
                 
-            
-            
             
         }
             

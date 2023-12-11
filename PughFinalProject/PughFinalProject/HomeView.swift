@@ -8,50 +8,79 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var medicationStore: MedicationStore = MedicationStore()
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \MedCD.name, ascending: true)]) var medsCD: FetchedResults<MedCD>
+    
+    @State private var dataChanged = false // State variable to track changes
+    
     var body: some View {
-        NavigationView{
-            List{
-                ForEach (medicationStore.meds) { med in
-                    ListCell(med: med)
-                    
-                }.onDelete(perform: deleteItems)
-                    .onMove(perform:moveItems)
+        NavigationView {
+            List {
+                ForEach(medsCD, id: \.self) { med in
+                    NavigationLink(destination: VStack {
+                        MedicationDetail(selecectedMed: med)
+                    }) {
+                        HStack {
+                            ListCell(med: med)
+                        }
+                    }
+                }
+                .onDelete(perform: deleteItems)
             }
             .navigationBarTitle(Text("Medications"))
-            .toolbar{
+            .toolbar {
                 EditButton()
-                
             }
-
         }
-    }
-    func deleteItems(at offsets: IndexSet){
-        medicationStore.meds.remove(atOffsets: offsets)
+        .onChange(of: dataChanged) { _ in
+            // This block will be called when dataChanged changes
+        }
+        .id(dataChanged) // Force view update by changing its ID
     }
     
-//    this function moves items in the list
-    func moveItems(from source: IndexSet, to destination: Int){
-        medicationStore.meds.move(fromOffsets: source, toOffset: destination)
+    func deleteItems(at offsets: IndexSet) {
+        for index in offsets {
+            let med = medsCD[index]
+            viewContext.delete(med)
+        }
+        do {
+            try viewContext.save()
+            dataChanged.toggle() // Toggle dataChanged to trigger view update
+        } catch {
+            let error = error as NSError
+            fatalError("Unresolved error: \(error)")
+        }
     }
 }
+
+
 struct ListCell: View {
-    var med : Medication
+    var colors: [Color] = [.blue, .orange, .red, .yellow, Color(red: 232/255, green: 213/255, blue: 211/255)]
+    
+    var shapes: [AnyView] = [
+        AnyView(Circle().frame(width: 50, height: 50)),
+        AnyView(Capsule().frame(width: 70, height: 30)),
+        AnyView(Ellipse().frame(width: 50, height: 40))
+    ]
+    
+    var med: FetchedResults<MedCD>.Element
+    
     var body: some View{
-        NavigationLink(destination: MedicationDetail(selecectedMed: med)){
-            HStack{
-                Image(systemName: "guitars.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 60)
-//                Text("\(guitar.brand) \(guitar.model)")
-            }
-            
+        HStack{
+            ZStack{
+                shapes[Int(med.shape)]
+                    .foregroundColor(colors[Int(med.color)])
+                    .padding(.top, 6)
+                    .padding(.horizontal, 5)
+                    .shadow(color: .black, radius: 8, x: 5, y: 1)
+                
+            }.frame(height:65)
+            Text(med.name ?? "no name").bold()
         }
-       
         
     }
 }
+
 
 
 struct HomeView_Previews: PreviewProvider {
