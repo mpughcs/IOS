@@ -17,16 +17,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             TabView{
-                DailyView()
-                    .tabItem {
-                        Image(systemName: "calendar")
-                        Text("Daily")
-                    }
                 HomeView()
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle.fill")
                         Text("Overview")
                     }
+                DailyView()
+                    .tabItem {
+                        Image(systemName: "calendar")
+                        Text("Daily")
+                    }
+                
                 AddMedicationView()
                     .tabItem {
                         Image(systemName: "plus.circle.fill")
