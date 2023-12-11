@@ -3,7 +3,7 @@
 # IOS Final Project
 ## Overview
 In this project, I will be creating a mobile application that will help users keep track of their medications. The app will allow users to add Medications, view expenses, and delete medications. The app will also allow users to view a pictoral representation of their medications. The app was developed solo using Swift and Xcode.
-[Link to Google](https://www.google.com)
+# [SEE VIDEO DEMO](https://www.youtube.com/watch?v=7-sghSPvDv8)
 ## Aim 
 The aim of this project is to demonstrate my mastery of the design, development, and debugging cycle of mobile app development.
 
